@@ -9,7 +9,7 @@
     - name: Create a data container
       docker_container:
         name: time-tracker
-        image: ulivara/time-tracker22:latest
+        image: "{{ appname }}" 
         state: started
         ports:
           "80:8081"
