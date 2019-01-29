@@ -1,0 +1,15 @@
+---  
+
+- hosts: "{{ variable_host | default('127.0.0.1') }}"
+  connection: "{{ connectiontype | default('local') }}"
+  gather_facts: no
+  vars:
+    appname: "{{ app }}"
+  tasks:
+    - name: Create a data container
+      docker_container:
+        name: time-tracker
+        image: ulivara/time-tracker22:latest
+        state: started
+        ports:
+          "80:8081"
