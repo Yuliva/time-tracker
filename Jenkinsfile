@@ -25,7 +25,7 @@ stage('Docker Create and Build')    {
   sh (returnStdout: true, script: "docker build -t ${app} .")
     }
 
-stage('pass variable and run Ansible deployment')   {
+stage('Pass variable and run Ansible deployment')   {
 
     echo sh (returnStdout: true, script: "ansible-playbook site.yaml -i '127.0.0.1,' --extra-vars \"appname=${app}:latest\"")    
     }
